@@ -4,19 +4,44 @@
 // caractere em um alfabeto é mapeada para o alfabeto alternativo para codificação ou
 // decodificação.
 // Se um caractere fornecido não estiver no alfabeto oposto, deixe como está.
-// class cifraSubstituição {
-//     Alfabeto1: string
-//     Alfabeto2: string
-//     constructor(alfabeto1: string, alfabeto2: string) {
-//         this.Alfabeto1 = alfabeto1
-//         this.Alfabeto2 = alfabeto2
-//     }
-//     Encode() {
-//     }
-//     Decode() {
-//     }
-// }
-// let cifra = new cifraSubstituição("abcdefg", "hijklmn")
+var cifraSubstituicao = /** @class */ (function () {
+    function cifraSubstituicao(alfabeto1, alfabeto2) {
+        this.Alfabeto1 = alfabeto1;
+        this.Alfabeto2 = alfabeto2;
+    }
+    cifraSubstituicao.prototype.Encode = function (letras) {
+        var arrayLetras1 = this.Alfabeto1.split("");
+        var arrayLetras2 = this.Alfabeto2.split("");
+        var arrayParametro = letras.split("");
+        var arraySup = [];
+        for (var index = 0; index < arrayLetras1.length; index++) {
+            for (var index2 = 0; index2 < arrayLetras1.length; index2++) {
+                if (arrayParametro[index] == arrayLetras1[index2]) {
+                    arraySup.push(arrayLetras2[index2]);
+                }
+            }
+        }
+        var juntar = arraySup.join("");
+        return juntar;
+    };
+    cifraSubstituicao.prototype.Decode = function (letras) {
+        var arrayLetras1 = this.Alfabeto1.split("");
+        var arrayLetras2 = this.Alfabeto2.split("");
+        var arrayParametro = letras.split("");
+        var arraySup = [];
+        for (var index = 0; index < arrayLetras1.length; index++) {
+            for (var index2 = 0; index2 < arrayLetras1.length; index2++) {
+                if (arrayParametro[index] == arrayLetras2[index2]) {
+                    arraySup.push(arrayLetras1[index2]);
+                }
+            }
+        }
+        var juntar = arraySup.join("");
+        return juntar;
+    };
+    return cifraSubstituicao;
+}());
+var cifra = new cifraSubstituicao("abcdefg", "hijklmn");
 // 2. Crie uma classe Jarra de suco com as seguintes propriedades: sucos(suco[]),
 // quantidadeTotal (number) e concentrações (number[]). Crie também uma classe Suco
 // com as seguintes propriedades: sabor(string) e quantidade(number). Na jarra
@@ -77,30 +102,30 @@ var JarraDeSuco = /** @class */ (function () {
         console.log("Suco adicionado!");
     };
     JarraDeSuco.prototype.Despejar = function (quantidade) {
-        var quantidadeDespejada = this.QuantidadeTotal - quantidade;
-        this.QuantidadeTotal = quantidadeDespejada;
+        var quantidadeTotal2 = this.QuantidadeTotal - quantidade;
+        this.QuantidadeTotal = quantidadeTotal2;
         console.log("Foi despejado da jarra " + quantidade + "ml");
     };
     return JarraDeSuco;
 }());
-var jarra1 = new JarraDeSuco();
-var continuar = true;
-while (continuar) {
-    var opcao = prompt("Insira a opção desejada: Adicionar suco na jarra(1), Desepejar suco(2)");
-    switch (opcao) {
-        case "1":
-            jarra1.AdicionarSuco(CriarSuco());
-            break;
-        case "2":
-            var DespejarQdade = parseInt(prompt("Insira a quantidade que deseja despejar"));
-            jarra1.Despejar(DespejarQdade);
-            break;
-        default:
-            console.log("Opção inválida");
-            break;
-    }
-    var novamente = prompt("Deseja continuar executando? s ou n");
-    if (novamente != "s") {
-        continuar = false;
-    }
-}
+// let jarra1 = new JarraDeSuco()
+// let continuar = true
+// while (continuar) {
+//     let opcao = prompt("Insira a opção desejada: Adicionar suco na jarra(1), Desepejar suco(2)")
+//     switch (opcao) {
+//         case "1":
+//             jarra1.AdicionarSuco(CriarSuco())
+//             break;
+//         case "2":
+//             let DespejarQdade = parseInt(prompt("Insira a quantidade que deseja despejar"))
+//             jarra1.Despejar(DespejarQdade)
+//             break;
+//         default:
+//             console.log("Opção inválida")
+//             break;
+//     }
+//     let novamente = prompt("Deseja continuar executando? s ou n")
+//     if (novamente != "s") {
+//         continuar = false
+//     }
+// }

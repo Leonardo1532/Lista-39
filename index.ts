@@ -5,24 +5,46 @@
 // decodificação.
 // Se um caractere fornecido não estiver no alfabeto oposto, deixe como está.
 
-// class cifraSubstituição {
-//     Alfabeto1: string
-//     Alfabeto2: string
-//     constructor(alfabeto1: string, alfabeto2: string) {
-//         this.Alfabeto1 = alfabeto1
-//         this.Alfabeto2 = alfabeto2
-//     }
+class cifraSubstituicao {
+    Alfabeto1: string
+    Alfabeto2: string
+    constructor(alfabeto1: string, alfabeto2: string) {
+        this.Alfabeto1 = alfabeto1
+        this.Alfabeto2 = alfabeto2
+    }
+    Encode(letras: string) {
+        let arrayLetras1 = this.Alfabeto1.split("")
+        let arrayLetras2 = this.Alfabeto2.split("")
+        let arrayParametro = letras.split("")
+        let arraySup: string[] = []
+        for (let index = 0; index < arrayLetras1.length; index++) {
+            for (let index2 = 0; index2 < arrayLetras1.length; index2++) {
+                if (arrayParametro[index] == arrayLetras1[index2]) {
+                    arraySup.push(arrayLetras2[index2])
+                }
+            }
+        }
+        let juntar = arraySup.join("")
+        return juntar
+    }
+    Decode(letras: string) {
+        let arrayLetras1 = this.Alfabeto1.split("")
+        let arrayLetras2 = this.Alfabeto2.split("")
+        let arrayParametro = letras.split("")
+        let arraySup: string[] = []
+        for (let index = 0; index < arrayLetras1.length; index++) {
+            for (let index2 = 0; index2 < arrayLetras1.length; index2++) {
+                if (arrayParametro[index] == arrayLetras2[index2]) {
+                    arraySup.push(arrayLetras1[index2])
+                }
+            }
+        }
+        let juntar = arraySup.join("")
+        return juntar
+    }
+}
 
-//     Encode() {
-
-//     }
-
-//     Decode() {
-
-//     }
-// }
-
-// let cifra = new cifraSubstituição("abcdefg", "hijklmn")
+let cifra = new cifraSubstituicao("abcdefg", "hijklmn")
 
 
 // 2. Crie uma classe Jarra de suco com as seguintes propriedades: sucos(suco[]),
@@ -92,25 +114,25 @@ class JarraDeSuco {
     }
 }
 
-let jarra1 = new JarraDeSuco()
+// let jarra1 = new JarraDeSuco()
 
-let continuar = true
-while (continuar) {
-    let opcao = prompt("Insira a opção desejada: Adicionar suco na jarra(1), Desepejar suco(2)")
-    switch (opcao) {
-        case "1":
-            jarra1.AdicionarSuco(CriarSuco())
-            break;
-        case "2":
-            let DespejarQdade = parseInt(prompt("Insira a quantidade que deseja despejar"))
-            jarra1.Despejar(DespejarQdade)
-            break;
-        default:
-            console.log("Opção inválida")
-            break;
-    }
-    let novamente = prompt("Deseja continuar executando? s ou n")
-    if (novamente != "s") {
-        continuar = false
-    }
-}
+// let continuar = true
+// while (continuar) {
+//     let opcao = prompt("Insira a opção desejada: Adicionar suco na jarra(1), Desepejar suco(2)")
+//     switch (opcao) {
+//         case "1":
+//             jarra1.AdicionarSuco(CriarSuco())
+//             break;
+//         case "2":
+//             let DespejarQdade = parseInt(prompt("Insira a quantidade que deseja despejar"))
+//             jarra1.Despejar(DespejarQdade)
+//             break;
+//         default:
+//             console.log("Opção inválida")
+//             break;
+//     }
+//     let novamente = prompt("Deseja continuar executando? s ou n")
+//     if (novamente != "s") {
+//         continuar = false
+//     }
+// }
