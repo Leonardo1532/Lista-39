@@ -114,25 +114,25 @@ class JarraDeSuco {
     }
 }
 
-// let jarra1 = new JarraDeSuco()
+let jarra1 = new JarraDeSuco()
 
-// let continuar = true
-// while (continuar) {
-//     let opcao = prompt("Insira a opção desejada: Adicionar suco na jarra(1), Desepejar suco(2)")
-//     switch (opcao) {
-//         case "1":
-//             jarra1.AdicionarSuco(CriarSuco())
-//             break;
-//         case "2":
-//             let DespejarQdade = parseInt(prompt("Insira a quantidade que deseja despejar"))
-//             jarra1.Despejar(DespejarQdade)
-//             break;
-//         default:
-//             console.log("Opção inválida")
-//             break;
-//     }
-//     let novamente = prompt("Deseja continuar executando? s ou n")
-//     if (novamente != "s") {
-//         continuar = false
-//     }
-// }
+let continuar = true
+while (continuar) {
+    let opcao = prompt("Insira a opção desejada: Adicionar suco na jarra(1), Desepejar suco(2)")
+    switch (opcao) {
+        case "1":
+            jarra1.AdicionarSuco(CriarSuco())
+            break;
+        case "2":
+            let DespejarQdade = parseInt(prompt("Insira a quantidade que deseja despejar"))
+            jarra1.Despejar(DespejarQdade)
+            break;
+        default:
+            console.log("Opção inválida")
+            break;
+    }
+    let novamente = prompt("Deseja continuar executando? s ou n")
+    if (novamente != "s") {
+        continuar = false
+    }
+}
